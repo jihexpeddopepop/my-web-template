@@ -5,13 +5,14 @@
 
     if (isset($_POST['update'])){
         $userid = $_GET['id'];
+        $idnumber = $_POST['idnumber'];
         $fname = $_POST['firstname'];
         $lname = $_POST['lastname'];
         $email = $_POST['email'];
         $phonenumber = $_POST['phonenumber'];
         $address = $_POST['address'];
         
-        $sql = $updatedata->update($fname, $lname, $email, $phonenumber, $address, $userid);
+        $sql = $updatedata->update($idnumber,$fname, $lname, $email, $phonenumber, $address, $userid);
         if ($sql) {
             echo "<script>alert('Updated Successfuly!');</script>";
             echo "<script>window.location.href='index.php'</script>";
@@ -47,6 +48,11 @@
         ?>
         
         <form action="" method="post">
+            <div class="mb-3 ">
+                <label for="idnumber">ID Number</label>
+                <input type="text" class="form-control" name="idnumber" 
+                value="<?php echo $row['idnumber']; ?>"required>
+            </div>
             <div class="mb-3">
                 <label for="firstname" class="form-label">First name</label>
                 <input type="text" class="form-control" name="firstname" 

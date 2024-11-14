@@ -14,9 +14,9 @@
             }
         }
 
-        public function insert($firstname, $lastname, $email, $phonenumber, $address){
-            $result = mysqli_query($this->dbcon, "INSERT INTO tblusers( firstname, lastname, email, 
-            phonenumber, address) VALUES('$firstname', '$lastname', '$email', '$phonenumber', '$address')"); 
+        public function insert($idnumber, $firstname, $lastname, $email, $phonenumber, $address){
+            $result = mysqli_query($this->dbcon, "INSERT INTO tblusers(idnumber, firstname, lastname, email, 
+            phonenumber, address) VALUES('$idnumber', '$firstname', '$lastname', '$email', '$phonenumber', '$address')"); 
             return $result;
         }
 
@@ -30,8 +30,9 @@
             return $result;
         }
 
-        public function update($firstname, $lastname, $email, $phonenumber, $address, $userid){
-            $result = mysqli_query($this->dbcon, "UPDATE tblusers SET firstname = '$firstname',
+        public function update($idnumber, $firstname, $lastname, $email, $phonenumber, $address, $userid){
+            $result = mysqli_query($this->dbcon, "UPDATE tblusers SET idnumber = '$idnumber',
+                firstname = '$firstname',
                 lastname = '$lastname',
                 email = '$email',
                 phonenumber = '$phonenumber',

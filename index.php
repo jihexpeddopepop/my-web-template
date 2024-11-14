@@ -11,10 +11,12 @@
     <div class="container">
     <h1 class="mt-5"> Information Page</h1>
     <hr>
-    <a href="insert.php" class="btn btn-success"> Go to Insert </a>
-    <table id="mytacle" class="table table-borderd tablw-striped">
+    <a href="insert.php" class="btn btn-success"> ไปที่หน้าเพิ่มข้อมูล </a>
+    <hr>
+    <table id="mytacle" class="table table-bordered table-striped">
         <thead>
-            <th>#</th>
+            <th>Number</th>
+            <th>ID Number</th>
             <th>First name</th>
             <th>Last name</th>
             <th>Email</th>
@@ -25,7 +27,7 @@
             <th>Delete</th>
         </thead>
         <tbody>
-            <?php
+            <?php $i = 1; //start number
             include_once('functions.php');
             $fetchdata = new DB_con();
             $sql = $fetchdata->fetchdata();
@@ -33,7 +35,9 @@
             ?>
 
                 <tr>
-                    <td><?php echo $row['id']; ?> </td>
+                    <td><?php echo $i++ ?> </td>
+                    <!-- <td> < ?php echo $row['id']; ? > </td> -->
+                    <td><?php echo $row['idnumber']; ?> </td>
                     <td><?php echo $row['firstname']; ?> </td>
                     <td><?php echo $row['lastname']; ?> </td>
                     <td><?php echo $row['email']; ?> </td>
